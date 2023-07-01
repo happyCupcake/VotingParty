@@ -22,7 +22,6 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="registration.html">Registration</a></li>
-        <li><a href="assistance.html">Assistance</a></li>
         <li><a href="polling-locations.html">Accessible Polling Locations</a></li>
         <li><a href="voting-guides.html">Voting Guides</a></li>
         <li><a href="resources.html">Resources</a></li>
@@ -74,7 +73,7 @@
 
     <section id="dashboard">
       <h2>Welcome to the Dashboard</h2>
-      <p>Here you can view your registered information and access additional features.</p>
+      <h3> Create a Voting Party! These individuals have the same polling location as you and are looking to party!!! </h3>
       <div id="user-info"></div>
       <button id="logout-button">Log Out</button>
     </section>
@@ -106,10 +105,12 @@
         name: name,
         address: address,
         contact: contact,
-        password: password
+        password: password,
+        //polling location: null
       };
 
-      localStorage.setItem('user', JSON.stringify(user));
+      console.log(user.name + " " + user.contact + " " + user.password)
+      localStorage.setItem(user.contact, JSON.stringify(user));
 
       registrationMessage.textContent = 'Registration complete!';
       registrationForm.reset();
@@ -123,7 +124,10 @@
       const loginContact = document.getElementById('login-contact').value;
       const loginPassword = document.getElementById('login-password').value;
 
-      const storedUser = JSON.parse(localStorage.getItem('user'));
+      const storedUser = JSON.parse(localStorage.getItem(document.getElementById('login-contact').value));
+      //console.log(storedUser.name + " " + storedUser.contact + " " + storedUser.password);
+      //console.log(storedUser.name + " " + storedUser.contact + " " + storedUser.password);
+
 
       if (storedUser) {
         if (storedUser.contact === loginContact && storedUser.password === loginPassword) {
@@ -139,23 +143,35 @@
     });
 
     function showDashboard() {
-      const user = JSON.parse(localStorage.getItem('user'));
+      //
+      //
+      //
+      
+      
+      for (var i = 0; i < localStorage.length; i++) {
 
-      if (user) {
-        userInfo.innerHTML = `
-          <p><strong>Name:</strong> ${user.name}</p>
-          <p><strong>Address:</strong> ${user.address}</p>
-          <p><strong>Contact Method:</strong> ${user.contact}</p>
-        `;
 
-        registrationForm.style.display = 'none';
-        loginForm.style.display = 'none';
-        dashboard.style.display = 'block';
+        //const user = JSON.parse(localStorage.getItem(user.contact));
+        const user = JSON.parse(localStorage.getItem(localStorage.key(i)));
+        if (user) {
+          userInfo.innerHTML += `
+            <p><strong>Name:</strong> ${user.name}</p>
+            <p><strong>Address:</strong> ${user.address}</p>
+            <p><strong>Contact Method:</strong> ${user.contact}</p>
+            <p></p>
+            <p></p>
+          `;
+
+          registrationForm.style.display = 'none';
+          loginForm.style.display = 'none';
+          dashboard.style.display = 'block';
+        }
+        //localStorage.removeItem(localStorage.key(i));
       }
     }
 
     logoutButton.addEventListener('click', function () {
-      localStorage.removeItem('user');
+      //localStorage.removeItem('user');
       registrationForm.style.display = 'block';
       loginForm.style.display = 'block';
       dashboard.style.display = 'none';
