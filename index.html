@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CitizenVote</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <style>
+    /* Additional CSS for Side Menu Bar */
+    .menu-bar {
+      position: fixed;
+      top: 0;
+      left: -200px;
+      /* Adjust the initial left value to hide the menu */
+      width: 200px;
+      height: 100%;
+      background-color: #778899;
+      /* Blue-grey shade */
+      color: #fff;
+      padding: 23px;
+      transform: translateX(0);
+      /* Update transform value to show the menu */
+      transition: transform 0.3s;
+      z-index: 2;
+    }
+
+    .menu-bar.open {
+      transform: translateX(200px);
+      /* Update transform value to move the menu */
+    }
+
+    .menu-toggle {
+      position: fixed;
+      top: 10px;
+      left: 30px;
+      width: 40px;
+      height: 40px;
+      background-color: #778899;
+      /* Blue-grey shade */
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: left 0.3s;
+      /* Add transition for smooth movement */
+    }
+
+    .menu-toggle:before {
+      content: "\2630";
+      font-size: 24px;
+    }
+
+    .menu-toggle.open:before {
+      content: "\2715";
+    }
+
+    /* Additional CSS for Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1.playfair {
+      margin-left: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0 0;
+    }
+
+    nav ul li {
+      margin-bottom: 10px;
+    }
+
+    nav ul li a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* Additional CSS for Home Page */
+    main {
+      margin: auto;
+      margin-left: 40px;
+      padding: 0px;
+      font-size: 20px;
+      /*background: #fff;*/
+    }
+
+    h2.playfair {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    section:nth-child(odd) {
+      background-color: #b6d1ec;
+    }
+
+    section:nth-child(even) {
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu-bar">
+    <nav>
+      <ul>
+        <li><a href="index.html" class="playfair">Home</a></li>
+        <li><a href="registration.html" class="playfair">Registration</a></li>
+        <li><a href="polling-locations.html" class="playfair">Accessible Polling Locations</a></li>
+        <li><a href="voting-guides.html" class="playfair">Voting Guides</a></li>
+        <li><a href="resources.html" class="playfair">Resources</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <button class="menu-toggle"></button>
+
+  <header>
+    <h1 class="playfair">CitizenVote.</h1>
+  </header>
+
+  <main>
+    <section id=1>
+      <h3 class="playfair">Encouraging Voter Participation in America</h2>
+        <p>Political polarization and low voter turnout are pressing issues in America's democratic system. Many people
+          are
+          becoming more polarized in their political views due to limited exposure to different perspectives.
+          Additionally,
+          a significant percentage of eligible voters do not participate in elections.</p>
+        <p>To address these challenges and promote political equality, our website aims to encourage more people to vote
+          through the creation of voting parties. Voting parties bring together individuals with different political
+          beliefs
+          to collectively participate in the electoral process. By fostering an inclusive and diverse environment, we
+          hope
+          to bridge the divide and promote dialogue, understanding, and engagement among voters.</p>
+        <p>Our website provides various resources, such as registration information, assistance guides, accessible
+          polling
+          locations, voting guides, and additional resources to help individuals navigate the voting process and make
+          informed decisions.</p>
+    </section>
+    <section id=2>
+      <h3 class="playfair">The American Voting System</h3>
+      <p>The American voting system is based on the principles of representative democracy, where eligible citizens have
+        the right to vote for elected officials who will represent their interests. The system operates on a federal
+        level
+        with national elections for the President, Congress, and other federal offices. Additionally, there are state
+        and
+        local elections that allow citizens to vote for governors, mayors, state legislators, and other officials.</p>
+      <p>Each state has its own rules and regulations regarding voter registration, absentee voting, early voting, and
+        polling locations. It's important for voters to familiarize themselves with their state's specific requirements
+        and deadlines to ensure their voices are heard.</p>
+    </section>
+    <section id=3>
+      <h3 class="playfair">The Importance of Voting</h3>
+      <p>By participating in elections, citizens have the opportunity to shape public policy, influence the direction of
+        their communities, and hold elected officials accountable for their actions. Voting is a fundamental right and a
+        cornerstone of democracy.</p>
+    </section>
+    <section id=4>
+      <h3 class="playfair">Let's Make a Difference</h3>
+      <p>Together, let's work towards a more inclusive and participatory democracy! We encourage everyone to exercise
+        their
+        right to vote, engage in constructive dialogue, and support initiatives that promote social equality and
+        justice.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p class="playfair">&copy; 2023 Social Equality Website. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // JavaScript to handle menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuBar = document.querySelector('.menu-bar');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('open');
+      menuBar.classList.toggle('open');
+    });
+  </script>
+</body>
+
+</html>

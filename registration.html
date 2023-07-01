@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Registration - CitizenVote</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Additional CSS for Dashboard */
+    #dashboard {
+      display: none;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>CitizenVote.</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="registration.html">Registration</a></li>
+        <li><a href="assistance.html">Assistance</a></li>
+        <li><a href="polling-locations.html">Accessible Polling Locations</a></li>
+        <li><a href="voting-guides.html">Voting Guides</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Registration</h2>
+      <form id="registration-form">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <input type="text" id="address" required>
+        </div>
+        <div class="form-group">
+          <label for="contact">Contact Method:</label>
+          <input type="text" id="contact" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" required>
+        </div>
+        <button type="submit">Register</button>
+      </form>
+      <p id="registration-message"></p>
+    </section>
+
+    <section>
+      <h2>Login</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="login-contact">Contact Method:</label>
+          <input type="text" id="login-contact" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password:</label>
+          <input type="password" id="login-password" required>
+        </div>
+        <button type="submit">Log In</button>
+      </form>
+
+      <p id="login-message"></p>
+    </section>
+
+    <section id="dashboard">
+      <h2>Welcome to the Dashboard</h2>
+      <p>Here you can view your registered information and access additional features.</p>
+      <div id="user-info"></div>
+      <button id="logout-button">Log Out</button>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2023 Social Equality. All rights reserved.
+  </footer>
+
+  <script>
+    // Registration Form
+    const registrationForm = document.getElementById('registration-form');
+    const registrationMessage = document.getElementById('registration-message');
+    const loginForm = document.getElementById('login-form');
+    const loginMessage = document.getElementById('login-message');
+    const userInfo = document.getElementById('user-info');
+    const dashboard = document.getElementById('dashboard');
+    const logoutButton = document.getElementById('logout-button');
+
+    registrationForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const address = document.getElementById('address').value;
+      const contact = document.getElementById('contact').value;
+      const password = document.getElementById('password').value;
+
+      const user = {
+        name: name,
+        address: address,
+        contact: contact,
+        password: password
+      };
+
+      localStorage.setItem('user', JSON.stringify(user));
+
+      registrationMessage.textContent = 'Registration complete!';
+      registrationForm.reset();
+
+      showDashboard();
+    });
+
+    loginForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const loginContact = document.getElementById('login-contact').value;
+      const loginPassword = document.getElementById('login-password').value;
+
+      const storedUser = JSON.parse(localStorage.getItem('user'));
+
+      if (storedUser) {
+        if (storedUser.contact === loginContact && storedUser.password === loginPassword) {
+          loginMessage.textContent = 'Login successful!';
+          loginForm.reset();
+          showDashboard();
+        } else {
+          loginMessage.textContent = 'Invalid contact method or password.';
+        }
+      } else {
+        loginMessage.textContent = 'No user found. Please register.';
+      }
+    });
+
+    function showDashboard() {
+      const user = JSON.parse(localStorage.getItem('user'));
+
+      if (user) {
+        userInfo.innerHTML = `
+          <p><strong>Name:</strong> ${user.name}</p>
+          <p><strong>Address:</strong> ${user.address}</p>
+          <p><strong>Contact Method:</strong> ${user.contact}</p>
+        `;
+
+        registrationForm.style.display = 'none';
+        loginForm.style.display = 'none';
+        dashboard.style.display = 'block';
+      }
+    }
+
+    logoutButton.addEventListener('click', function () {
+      localStorage.removeItem('user');
+      registrationForm.style.display = 'block';
+      loginForm.style.display = 'block';
+      dashboard.style.display = 'none';
+    });
+
+    // Check if user is already logged in
+    showDashboard();
+  </script>
+
+</body>
+
+</html>

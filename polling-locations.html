@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Accessible Polling Locations</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://apis.google.com/js/client.js"></script>
+
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>CitizenVote.</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="registration.html">Registration</a></li>
+        <li><a href="accessible-polling-locations.html">Accessible Polling Locations</a></li>
+        <li><a href="voting-guides.html">Voting Guides</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="accessible-polling-locations">
+    <section>
+      <h2>Find Accessible Polling Locations</h2>
+      <form id="polling-form">
+        <div class="form-group">
+          <label for="address" class="label">Enter your address:</label>
+          <input type="text" id="address" class="input-field">
+        </div>
+        <div class="form-group">
+          <button type="button" onclick="handleFormSubmit()" value="submit">Search</button>
+        </div>
+      </form>
+      <div id="results" class="results"></div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2023 My Voting App. All rights reserved.
+  </footer>
+</body>
+
+</html>
