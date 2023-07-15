@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <title>Registration - CitizenVote</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://apis.google.com/js/client.js"></script>
+  <script src="script.js"></script>
   <style>
     /* Additional CSS for Dashboard */
     #dashboard {
@@ -72,8 +74,7 @@
     </section>
 
     <section id="dashboard">
-      <h2>Welcome to the Dashboard</h2>
-      <h3> Create a Voting Party! These individuals have the same polling location as you and are looking to party!!! </h3>
+      <h2>Welcome to Citizen Vote</h2>
       <div id="user-info"></div>
       <button id="logout-button">Log Out</button>
     </section>
@@ -106,7 +107,7 @@
         address: address,
         contact: contact,
         password: password,
-        //polling location: null
+        polling: '',
       };
 
       console.log(user.name + " " + user.contact + " " + user.password)
@@ -115,7 +116,7 @@
       registrationMessage.textContent = 'Registration complete!';
       registrationForm.reset();
 
-      showDashboard();
+      //showDashboard();
     });
 
     loginForm.addEventListener('submit', function (event) {
@@ -124,50 +125,88 @@
       const loginContact = document.getElementById('login-contact').value;
       const loginPassword = document.getElementById('login-password').value;
 
-      const storedUser = JSON.parse(localStorage.getItem(document.getElementById('login-contact').value));
-      //console.log(storedUser.name + " " + storedUser.contact + " " + storedUser.password);
-      //console.log(storedUser.name + " " + storedUser.contact + " " + storedUser.password);
+      // Check if localStorage is supported
 
+      // Loop through all the items in localStorage
 
-      if (storedUser) {
-        if (storedUser.contact === loginContact && storedUser.password === loginPassword) {
-          loginMessage.textContent = 'Login successful!';
-          loginForm.reset();
-          showDashboard();
+      for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i); // Get the key at index i
+        var value = localStorage.getItem(key); // Get the corresponding value
+
+        // Do something with the key and value
+        console.log('Key:', key);
+        console.log('Value:', value);
+
+        const storedUser = JSON.parse(value);
+
+        if (storedUser) {
+          if (storedUser.contact === loginContact && storedUser.password === loginPassword) {
+            loginMessage.textContent = 'Login successful!';
+            loginForm.reset();
+            showLoggedInUser(key);
+            break;
+          } else {
+            loginMessage.textContent = 'Invalid contact method or password.';
+          }
         } else {
-          loginMessage.textContent = 'Invalid contact method or password.';
+          loginMessage.textContent = 'No user found. Please register.';
         }
-      } else {
-        loginMessage.textContent = 'No user found. Please register.';
       }
+
+      //showDashboard();
     });
 
-    function showDashboard() {
-      //
-      //
-      //
-      
-      
-      for (var i = 0; i < localStorage.length; i++) {
-
-
-        //const user = JSON.parse(localStorage.getItem(user.contact));
-        const user = JSON.parse(localStorage.getItem(localStorage.key(i)));
-        if (user) {
-          userInfo.innerHTML += `
+    function showLoggedInUser(userKey) {
+      var user = JSON.parse(localStorage.getItem(userKey));
+      if (user) {
+        if (user.polling == '') {
+          gapi.client.setApiKey('AIzaSyB7q8BVVatQbt7btIRwPPbWq_5ZJlp0vq4');
+          var elementId = 'user-info';
+          console.log('showLoggedInUser', user.address);
+          htmlInfo = `
             <p><strong>Name:</strong> ${user.name}</p>
             <p><strong>Address:</strong> ${user.address}</p>
             <p><strong>Contact Method:</strong> ${user.contact}</p>
             <p></p>
             <p></p>
           `;
-
-          registrationForm.style.display = 'none';
-          loginForm.style.display = 'none';
-          dashboard.style.display = 'block';
+          lookup(user.address, function (response) {
+            displayPollingLocation(user, response, elementId, htmlInfo);
+          });
+        } else {
+          userInfo.innerHTML = `
+            <p><strong>Name:</strong> ${user.name}</p>
+            <p><strong>Address:</strong> ${user.address}</p>
+            <p><strong>Contact Method:</strong> ${user.contact}</p>
+            <p><strong>Polling Location:</string> ${user.polling}</p>
+            <p></p>
+            <p></p>`
         }
-        //localStorage.removeItem(localStorage.key(i));
+        // find all users with same polling location as me
+        userInfo.innerHTML +=`
+          <p><strong>Additional users found with same polling location:</strong></p>`
+        
+        for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i); 
+            var value = localStorage.getItem(key); 
+            const storedUser = JSON.parse(value);
+
+        if (storedUser) {
+          if (storedUser.polling === user.polling && storedUser.name != user.name) {
+            userInfo.innerHTML +=`
+                <p><strong>Contact Method:</strong> ${storedUser.contact}</p>`
+          } else {
+            loginMessage.textContent = 'Invalid contact method or password.';
+          }
+        } else {
+          loginMessage.textContent = 'No user found with same polling location.';
+        }
       }
+        
+      }
+      registrationForm.style.display = 'none';
+      loginForm.style.display = 'none';
+      dashboard.style.display = 'block';
     }
 
     logoutButton.addEventListener('click', function () {
@@ -178,7 +217,7 @@
     });
 
     // Check if user is already logged in
-    showDashboard();
+    //showDashboard();
   </script>
 
 </body>

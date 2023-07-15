@@ -39,10 +39,9 @@ function lookup(address, callback) {
 
 }
 
-function displayPollingLocation(response, rawResponse) {
-  console.log("hi");
-  var resultsContainer = document.getElementById('results');
-  resultsContainer.innerHTML = '';
+function displayPollingLocation(user, response, elementId, htmlInfo) {
+  var resultsContainer = document.getElementById(elementId);
+  resultsContainer.innerHTML = htmlInfo;
 
   if (!response || response.error) {
     resultsContainer.textContent = 'Error while trying to fetch polling place';
@@ -63,12 +62,16 @@ function displayPollingLocation(response, rawResponse) {
       pollingLocation.zip;
 
     var normEl = document.createElement('strong');
-    normEl.textContent = 'Polling place for ' + normalizedAddress + ': ';
+    normEl.textContent = 'Polling Location: ';
     resultsContainer.appendChild(normEl);
 
-    var addressEl = document.createElement('span');
+    var addressEl = document.createElement('strong');
     addressEl.textContent = pollingAddress;
     resultsContainer.appendChild(addressEl);
+    if (user) {
+      user.polling = pollingAddress;
+      localStorage.setItem(user.contact, JSON.stringify(user));
+    }
   } else {
     var errorEl = document.createElement('span');
     errorEl.textContent = 'Could not find polling place for ' + normalizedAddress;
@@ -84,19 +87,26 @@ function handleFormSubmit() {
   var address = addressInput.value.trim();
 
   gapi.client.setApiKey('AIzaSyB7q8BVVatQbt7btIRwPPbWq_5ZJlp0vq4');
-
+  var elementId = 'results';
   if (address !== '') {
     console.log('Form submitted:', address);
-    lookup(address, displayPollingLocation
-    );
+    lookup(address, function(response) {
+      displayPollingLocation(null, response, elementId, '');
+    });
   }
 }
 
 
-//function load() {
-  //gapi.load('client', function() {
-/*gapi.client.init({
-  apiKey: apiKey
-});*/
-  //});
-//}
+function displayAddressInfo(addressInfo, elementId) {
+  var element = document.getElementById(elementId);
+  if (element) {
+    // Display the address information in the specified element
+    element.innerHTML = `
+      <p><strong>Polling Location:</strong> ${addressInfo.pollingLocation}</p>
+      <p><strong>Election Date:</strong> ${addressInfo.electionDate}</p>
+      <p><strong>Other Details:</strong> ${addressInfo.otherDetails}</p>
+    `;
+  } else {
+    console.log(`Element with ID '${elementId}' not found.`);
+  }
+}
