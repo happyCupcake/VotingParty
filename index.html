@@ -7,88 +7,8 @@
   <title>CitizenVote</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-  <style>
-    /* Additional CSS for Side Menu Bar */
-    .menu-bar {
-      position: fixed;
-      top: 0;
-      left: -200px;
-      /* Adjust the initial left value to hide the menu */
-      width: 200px;
-      height: 100%;
-      background-color: #778899;
-      /* Blue-grey shade */
-      color: #fff;
-      padding: 23px;
-      transform: translateX(0);
-      /* Update transform value to show the menu */
-      transition: transform 0.3s;
-      z-index: 2;
-    }
-
-    .menu-bar.open {
-      transform: translateX(200px);
-      /* Update transform value to move the menu */
-    }
-
-    .menu-toggle {
-      position: fixed;
-      top: 10px;
-      left: 30px;
-      width: 40px;
-      height: 40px;
-      background-color: #778899;
-      /* Blue-grey shade */
-      color: #fff;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: left 0.3s;
-      /* Add transition for smooth movement */
-    }
-
-    .menu-toggle:before {
-      content: "\2630";
-      font-size: 24px;
-    }
-
-    .menu-toggle.open:before {
-      content: "\2715";
-    }
-
-    /* Additional CSS for Header */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    h1.playfair {
-      margin-left: 50px;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0 0 0;
-    }
-
-    nav ul li {
-      margin-bottom: 10px;
-    }
-
-    nav ul li a {
-      display: block;
-      color: #fff;
-      text-decoration: none;
-    }
+<style>
+  
 
     /* Additional CSS for Home Page */
     main {
@@ -115,26 +35,23 @@
     section:nth-child(even) {
       background-color: #fff;
     }
-  </style>
+</style>
 </head>
 
 <body>
-  <div class="menu-bar">
+
+ <header>
+    <h1 class="playfair">CitizenVote.</h1>
     <nav>
       <ul>
-        <li><a href="index.html" class="playfair">Home</a></li>
-        <li><a href="registration.html" class="playfair">Registration</a></li>
-        <li><a href="polling-locations.html" class="playfair">Accessible Polling Locations</a></li>
-        <li><a href="voting-guides.html" class="playfair">Voting Guides</a></li>
-        <li><a href="resources.html" class="playfair">Resources</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="registration1.html">Registration</a></li>
+        <li><a href="polling-locations.html">Accessible Polling Locations</a></li>
+        <li><a href="voting-guides.html">Voting Guides</a></li>
+        <li><a href="resources.html">Resources</a></li>
       </ul>
     </nav>
-  </div>
-
-  <button class="menu-toggle"></button>
-
-  <header>
-    <h1 class="playfair">CitizenVote.</h1>
   </header>
 
   <main>
@@ -187,16 +104,7 @@
     <p class="playfair">&copy; 2023 Social Equality Website. All rights reserved.</p>
   </footer>
 
-  <script>
-    // JavaScript to handle menu toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menuBar = document.querySelector('.menu-bar');
-
-    menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('open');
-      menuBar.classList.toggle('open');
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 
 </html>
