@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Polarization Game</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .scenario {
+      background-color: #f7f7f7;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #778899;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Polarization Game</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="registration.html">Registration</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="polling-locations.html">Accessible Polling Locations</a></li>
+        <li><a href="voting-guides.html">Voting Guides</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Test Your Political Polarization</h2>
+    <p>Indicate your agreement or disagreement with the following scenarios:</p>
+
+    <form id="polarization-form">
+      <div class="scenario">
+        <p>Scenario 1: The government should invest more in renewable energy sources.</p>
+        <label><input type="radio" name="scenario1" value="strongly-agree"> Strongly Agree</label>
+        <label><input type="radio" name="scenario1" value="agree"> Agree</label>
+        <label><input type="radio" name="scenario1" value="neutral"> Neutral</label>
+        <label><input type="radio" name="scenario1" value="disagree"> Disagree</label>
+         <label><input type="radio" name="scenario1" value="strongly-disagree"> Strongly Disagree</label>
+      </div>
+
+      <div class="scenario">
+        <p>Scenario 2: Healthcare should be a fundamental right for all citizens.</p>
+        <label><input type="radio" name="scenario2" value="strongly-agree"> Strongly Agree</label>
+        <label><input type="radio" name="scenario2" value="agree"> Agree</label>
+        <label><input type="radio" name="scenario2" value="neutral"> Neutral</label>
+        <label><input type="radio" name="scenario2" value="disagree"> Disagree</label>
+        <label><input type="radio" name="scenario2" value="strongly-disagree"> Strongly Disagree</label>
+      </div>
+
+    <div class="scenario">
+      <p>Scenario 3: Stricter gun control laws are necessary to reduce gun violence.</p>
+      <label><input type="radio" name="scenario3" value="strongly-agree"> Strongly Agree</label>
+      <label><input type="radio" name="scenario3" value="agree"> Agree</label>
+      <label><input type="radio" name="scenario3" value="neutral"> Neutral</label>
+      <label><input type="radio" name="scenario3" value="disagree"> Disagree</label>
+      <label><input type="radio" name="scenario3" value="strongly-disagree"> Strongly Disagree</label>
+    </div>
+
+    <div class="scenario">
+      <p>Scenario 4: Taxes should be lowered to stimulate economic growth.</p>
+      <label><input type="radio" name="scenario4" value="strongly-agree"> Strongly Agree</label>
+      <label><input type="radio" name="scenario4" value="agree"> Agree</label>
+      <label><input type="radio" name="scenario4" value="neutral"> Neutral</label>
+      <label><input type="radio" name="scenario4" value="disagree"> Disagree</label>
+      <label><input type="radio" name="scenario4" value="strongly-disagree"> Strongly Disagree</label>
+    </div>
+
+    <div class="scenario">
+      <p>Scenario 5: Immigration policies should be more lenient to provide opportunities for refugees.</p>
+      <label><input type="radio" name="scenario5" value="strongly-agree"> Strongly Agree</label>
+      <label><input type="radio" name="scenario5" value="agree"> Agree</label>
+      <label><input type="radio" name="scenario5" value="neutral"> Neutral</label>
+      <label><input type="radio" name="scenario5" value="disagree"> Disagree</label>
+      <label><input type="radio" name="scenario5" value="strongly-disagree"> Strongly Disagree</label>
+    </div>
+
+    <div class="scenario">
+      <p>Scenario 6: The minimum wage should be increased to ensure fair wages for workers.</p>
+      <label><input type="radio" name="scenario6" value="strongly-agree"> Strongly Agree</label>
+      <label><input type="radio" name="scenario6" value="agree"> Agree</label>
+      <label><input type="radio" name="scenario6" value="neutral"> Neutral</label>
+      <label><input type="radio" name="scenario6" value="disagree"> Disagree</label>
+      <label><input type="radio" name="scenario6" value="strongly-disagree"> Strongly Disagree</label>
+    </div>
+
+    <div class="scenario">
+      <p>Scenario 7: Affirmative action policies should be implemented to address systemic inequalities.</p>
+      <label><input type="radio" name="scenario7" value="strongly-agree"> Strongly Agree</label>
+      <label><input type="radio" name="scenario7" value="agree"> Agree</label>
+      <label><input type="radio" name="scenario7" value="neutral"> Neutral</label>
+      <label><input type="radio" name="scenario7" value="disagree"> Disagree</label>
+      <label><input type="radio" name="scenario7" value="strongly-disagree"> Strongly Disagree</label>
+    </div>
+
+    <div class="scenario">
+      <p>Scenario 8: Free trade agreements are beneficial for the economy and global cooperation.</p>
+      <label><input type="radio" name="scenario8" value="strongly-agree"> Strongly Agree</label>
+      <label><input type="radio" name="scenario8" value="agree"> Agree</label>
+      <label><input type="radio" name="scenario8" value="neutral"> Neutral</label>
+      <label><input type="radio" name="scenario8" value="disagree"> Disagree</label>
+      <label><input type="radio" name="scenario8" value="strongly-disagree"> Strongly Disagree</label>
+    </div>
+
+    <div class="scenario">
+      <p>Scenario 9: Education funding should be increased to improve the quality of schools.</p>
+      <label><input type="radio" name="scenario9" value="strongly-agree"> Strongly Agree</label>
+      <label><input type="radio" name="scenario9" value="agree"> Agree</label>
+      <label><input type="radio" name="scenario9" value="neutral"> Neutral</label>
+      <label><input type="radio" name="scenario9" value="disagree"> Disagree</label>
+      <label><input type="radio" name="scenario9" value="strongly-disagree"> Strongly Disagree</label>
+    </div>
+
+    <div class="scenario">
+      <p>Scenario 10: Government surveillance is necessary for national security.</p>
+      <label><input type="radio" name="scenario10" value="strongly-agree"> Strongly Agree</label>
+      <label><input type="radio" name="scenario10" value="agree"> Agree</label>
+      <label><input type="radio" name="scenario10" value="neutral"> Neutral</label>
+      <label><input type="radio" name="scenario10" value="disagree"> Disagree</label>
+      <label><input type="radio" name="scenario10" value="strongly-disagree"> Strongly Disagree</label>
+    </div>
+  </form>
+      <button id="submit-button">Submit</button>
+    <p>Your polarization score: <span id="polarization-score">0</span></p>
+  </div>
+
+  <script>
+    // JavaScript code for the game
+    const form = document.getElementById('polarization-form');
+    const submitButton = document.getElementById('submit-button');
+    const polarizationScore = document.getElementById('polarization-score');
+
+   submitButton.addEventListener('click', () => {
+  let agreeTotal = 0;
+  let stronglyAgreeTotal = 0;
+  let disagreeTotal = 0;
+  let stronglyDisagreeTotal = 0;
+     
+
+  // Loop through all scenarios
+  for (let i = 1; i <= 10; i++) {
+    const selectedOption = document.querySelector(`input[name="scenario${i}"]:checked`);
+    if (selectedOption) {
+      if (selectedOption.value === "agree") {
+        console.log("agree");
+        agreeTotal++;
+      } else if (selectedOption.value === "disagree") {
+        console.log("disagree");
+        disagreeTotal++;
+      } else if (selectedOption.value === "strongly-disagree") {
+        console.log("strongly-disagree");
+        stronglyDisagreeTotal++;
+      } else if (selectedOption.value === "strongly-agree") {
+        console.log("strongly-agree");
+        stronglyAgreeTotal++;
+      }
+    }
+  }
+
+  const totalScenarios = 10;
+  const polarizationIndex = totalScenarios === 0 ? 0 : ((2*stronglyAgreeTotal+agreeTotal) - (2*stronglyDisagreeTotal + disagreeTotal)) / totalScenarios;
+
+  // Display the polarization index
+  polarizationScore.textContent = polarizationIndex.toFixed(2);
+     console.log(agreeTotal + disagreeTotal);
+     console.log(totalScenarios);
+     console.log(polarizationIndex);
+     
+});
+
+  </script>
+</body>
+
+</html>
