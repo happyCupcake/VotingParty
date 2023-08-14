@@ -8,8 +8,6 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 <style>
-  
-
     /* Additional CSS for Home Page */
     main {
       margin: auto;
@@ -19,7 +17,7 @@
       /*background: #fff;*/
     }
 
-    h2.playfair {
+    h3.playfair {
       font-size: 28px;
       margin-bottom: 20px;
     }
@@ -35,6 +33,55 @@
     section:nth-child(even) {
       background-color: #fff;
     }
+      section {
+      display: flex;
+      align-items: center;
+    }
+  
+/* Add this to your style.css file */
+.section {
+  display: flex;
+  align-items: center;
+   justify-content: flex-start; 
+  padding: 20px; /* Add padding for spacing */
+    position: relative;
+}
+
+  .section-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* Add this line to make content stack vertically */
+  margin-right: 30px;
+}
+  .section-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+  .section-image {
+  margin-left: auto; /* Move the image to the right */
+  height: 200px;
+  width: 200px;
+}
+
+  
+  
+  /* Clear the float to prevent layout issues */
+  section::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+  body {
+    background-image: url('voting-background.jpg'); /* Replace 'your-image-path.jpg' with the actual path to your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+  }
+
 </style>
 </head>
 
@@ -56,7 +103,9 @@
 
   <main>
     <section id=1>
-      <h3 class="playfair">Encouraging Voter Participation in America</h2>
+      <div class="section-content">
+        <h3 class="playfair section-title">Encouraging Voter Participation in America</h3>
+        <!-- Add your content here -->
         <p>Political polarization and low voter turnout are pressing issues in America's democratic system. Many people
           are
           becoming more polarized in their political views due to limited exposure to different perspectives.
@@ -72,9 +121,12 @@
           polling
           locations, voting guides, and additional resources to help individuals navigate the voting process and make
           informed decisions.</p>
+      </div>
+      <img src="voting-party.jpg" alt="Voting Party" class="section-image">
     </section>
     <section id=2>
-      <h3 class="playfair">The American Voting System</h3>
+      <div class="section-content">
+        <h3 class="playfair section-title">The American Voting System</h3>
       <p>The American voting system is based on the principles of representative democracy, where eligible citizens have
         the right to vote for elected officials who will represent their interests. The system operates on a federal
         level
@@ -84,19 +136,27 @@
       <p>Each state has its own rules and regulations regarding voter registration, absentee voting, early voting, and
         polling locations. It's important for voters to familiarize themselves with their state's specific requirements
         and deadlines to ensure their voices are heard.</p>
+        </div>
+        <img src="us-flag.jpg" alt="Voting Party" class="section-image">
     </section>
     <section id=3>
-      <h3 class="playfair">The Importance of Voting</h3>
+      <div class="section-content">
+      <h3 class="playfair section-title">The Importance of Voting</h3>
       <p>By participating in elections, citizens have the opportunity to shape public policy, influence the direction of
         their communities, and hold elected officials accountable for their actions. Voting is a fundamental right and a
         cornerstone of democracy.</p>
+        </div>
+      <img src="vote.jpg" alt="Voting Party" class="section-image">
     </section>
     <section id=4>
-      <h3 class="playfair">Let's Make a Difference</h3>
+        <div class="section-content">
+      <h3 class="playfair section-title">Let's Make a Difference</h3>
       <p>Together, let's work towards a more inclusive and participatory democracy! We encourage everyone to exercise
         their
         right to vote, engage in constructive dialogue, and support initiatives that promote social equality and
         justice.</p>
+      </div>
+      <img src="i-voted.jpg" alt="Voting Party" class="section-image">
     </section>
   </main>
 
