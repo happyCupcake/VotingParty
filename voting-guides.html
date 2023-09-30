@@ -5,6 +5,65 @@
   <meta charset="UTF-8">
   <title>Voting Guides - CitizenVote</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Slideshow Styles */
+    .slideshow-container {
+      max-width: 100%;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scrolling-wrapper {
+      display: flex;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .mySlides {
+      flex: 0 0 auto;
+      width: 600px; /* Smaller width for non-focused slides */
+      padding: 50px;
+      background-color: rgba(200, 200, 200,0.7); /* Slightly darker background */
+      border-radius: 10px;
+      margin-right: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transform: scale(0.8); /* Smaller size for non-focused slides */
+      transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .mySlides.focus {
+
+      width: 800px; /* Larger width for the focused slide */
+      background-color: rgb(240, 240, 255); /* Original background for the focused slide */
+      transform: scale(1); /* Original size for the focused slide */
+    }
+
+    /* Navigation Buttons */
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 30px;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border-radius: 5px;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+  </style>
 </head>
 
 <body>
@@ -25,43 +84,104 @@
   </header>
 
   <main>
-    <section>
-      <h2>Voting Guides</h2>
-      <!-- Add content specific to the Resources page -->
-    </section>
-    <section>
-  <h2 class="playfair">How Voting Works: A Step-by-Step Guide</h2>
-  <p>Voting is a fundamental right in a democratic society. It allows citizens to have a voice in electing their representatives and shaping the future of their communities. If you're new to voting or want to refresh your knowledge, this step-by-step guide will walk you through the voting process.</p>
-  
-  <h3 class="playfair">Step 1: Voter Registration</h3>
-  <p>Before you can vote, you need to register as a voter. Voter registration requirements vary by state, but generally, you'll need to provide your personal information, such as your name, address, and date of birth. You can register either online, by mail, or in person at designated registration locations. Make sure to check the voter registration deadlines in your state.</p>
-  
-  <h3 class="playfair">Step 2: Educate Yourself</h3>
-  <p>It's important to be informed about the candidates and the issues at stake in an election. Research the candidates running for various offices and their positions on key issues. Read voter guides, watch candidate debates, and explore reputable news sources to gather information. Understanding the candidates and their platforms will help you make an informed decision.</p>
-  
-  <h3 class="playfair">Step 3: Find Your Polling Location</h3>
-  <p>On Election Day, you'll need to cast your vote at your designated polling location. The location will depend on your registered address. Visit your state's election website or contact your local election office to find out where you should go to vote. Some states also offer early voting or mail-in voting options, so be sure to explore those if they are available.</p>
-  
-  <h3 class="playfair">Step 4: Bring Required Identification</h3>
-  <p>When you go to vote, you'll typically need to bring a valid form of identification. Accepted forms of ID can include a driver's license, passport, or other government-issued identification. Check your state's requirements to ensure you have the appropriate ID with you when you go to vote.</p>
-  
-  <h3 class="playfair">Step 5: Cast Your Vote</h3>
-  <p>Once you're at the polling location, you'll be directed to a voting booth. Follow the instructions provided and mark your ballot according to your choices. In some states, you may use electronic voting machines, while others still use paper ballots. Take your time, review your choices, and make sure to follow the instructions carefully.</p>
-  
-  <h3 class="playfair">Step 6: Verify Your Vote</h3>
-  <p>After casting your vote, some voting systems may allow you to review your choices and confirm your ballot before finalizing it. Take advantage of this feature, if available, to ensure your selections are accurately recorded.</p>
-  
-  <h3 class="playfair">Step 7: Election Results</h3>
-  <p>Once the polls close, the ballots are counted, and the election results are determined. This process may take some time, especially for larger elections. The results will be announced by the election authorities and may be published in local news outlets or on the official election website.</p>
-  
-  <p>Remember, every vote counts! By participating in the electoral process, you have a say in shaping the future of your community and the nation. Exercise your right to vote and make your voice heard.</p>
-</section>
+    <div class="slideshow-container">
+      <div class="scrolling-wrapper">
+        <div class="mySlides focus">
+          <section>
+            <h2>Voting Guides</h2>
+            <!-- Add content specific to the Voting Guides page -->
+          </section>
+        </div>
 
+        <div class="mySlides">
+          <section>
+            <h2 class="playfair">Step 1: Voter Registration</h2>
+            <p>Before you can vote, you need to register as a voter. Voter registration requirements vary by state, but generally, you'll need to provide your personal information, such as your name, address, and date of birth. You can register either online, by mail, or in person at designated registration locations. Make sure to check the voter registration deadlines in your state.</p>
+          </section>
+        </div>
+
+        <div class="mySlides">
+          <section>
+            <h2 class="playfair">Step 2: Educate Yourself</h2>
+            <p>It's important to be informed about the candidates and the issues at stake in an election. Research the candidates running for various offices and their positions on key issues. Read voter guides, watch candidate debates, and explore reputable news sources to gather information. Understanding the candidates and their platforms will help you make an informed decision.</p>
+          </section>
+        </div>
+
+        <div class="mySlides">
+          <section>
+            <h2 class="playfair">Step 3: Find Your Polling Location</h2>
+            <p>On Election Day, you'll need to cast your vote at your designated polling location. The location will depend on your registered address. Visit your state's election website or contact your local election office to find out where you should go to vote. Some states also offer early voting or mail-in voting options, so be sure to explore those if they are available.</p>
+          </section>
+        </div>
+
+        <div class="mySlides">
+          <section>
+            <h2 class="playfair">Step 4: Bring Required Identification</h2>
+            <p>When you go to vote, you'll typically need to bring a valid form of identification. Accepted forms of ID can include a driver's license, passport, or other government-issued identification. Check your state's requirements to ensure you have the appropriate ID with you when you go to vote.</p>
+          </section>
+        </div>
+
+        <div class="mySlides">
+          <section>
+            <h2 class="playfair">Step 5: Cast Your Vote</h2>
+            <p>Once you're at the polling location, you'll be directed to a voting booth. Follow the instructions provided and mark your ballot according to your choices. In some states, you may use electronic voting machines, while others still use paper ballots. Take your time, review your choices, and make sure to follow the instructions carefully.</p>
+          </section>
+        </div>
+
+        <div class="mySlides">
+          <section>
+            <h2 class="playfair">Step 6: Verify Your Vote</h2>
+            <p>After casting your vote, some voting systems may allow you to review your choices and confirm your ballot before finalizing it. Take advantage of this feature, if available, to ensure your selections are accurately recorded.</p>
+          </section>
+        </div>
+
+        <div class="mySlides">
+          <section>
+            <h2 class="playfair">Step 7: Election Results</h2>
+            <p>Once the polls close, the ballots are counted, and the election results are determined. This process may take some time, especially for larger elections. The results will be announced by the election authorities and may be published in local news outlets or on the official election website.</p>
+          </section>
+        </div>
+      </div>
+      <a class="prev" onclick="scrollSlides(-1)">&#10094;</a>
+      <a class="next" onclick="scrollSlides(1)">&#10095;</a>
+    </div>
   </main>
 
   <footer>
     &copy; 2023 Social Equality. All rights reserved.
   </footer>
+
+  <script>
+    // JavaScript for the scrolling gallery
+
+    let currentIndex = 0;
+
+    function scrollSlides(n) {
+      const slides = document.querySelectorAll('.mySlides');
+      const scrollingWrapper = document.querySelector('.scrolling-wrapper');
+
+      slides[currentIndex].classList.remove('focus');
+      currentIndex += n;
+
+      if (currentIndex < 0) {
+        currentIndex = slides.length - 1;
+      } else if (currentIndex >= slides.length) {
+        currentIndex = 0;
+      }
+
+      slides[currentIndex].classList.add('focus');
+
+      // Calculate the translation value to center the focused slide
+      const slideWidth = slides[currentIndex].offsetWidth;
+      const wrapperWidth = scrollingWrapper.offsetWidth;
+      const scrollValue = (currentIndex * (slideWidth - 190));
+
+      scrollingWrapper.style.transform = `translateX(-${scrollValue}px)`;
+    }
+
+    // Initially focus on the first slide
+    scrollSlides(0);
+  </script>
 </body>
 
 </html>
