@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Political Mindset Survey</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional CSS for Survey Page */
+        .survey-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .topic {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .question-container {
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 10px;
+        }
+
+        .choice {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .submit-btn {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+      <h1>CitizenVote</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="registration.html">Registration</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="polling-locations.html">Accessible Polling Locations</a></li>
+          <li><a href="voting-guides.html">Voting Guides</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="survey.html">Survey</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="survey-container">
+        <div class="topic">
+            <h2>Topic 1: Government's Role and Size</h2>
+        </div>
+        <div class="question-container">
+            <div class="question">
+                1. To what extent do you believe the government should be involved in regulating businesses and industries?
+            </div>
+            <label class="choice"><input type="radio" name="q1" value="1"> Not involved at all</label>
+            <label class="choice"><input type="radio" name="q1" value="2"> Limited involvement</label>
+            <label class="choice"><input type="radio" name="q1" value="3"> Moderately involved</label>
+            <label class="choice"><input type="radio" name="q1" value="4"> Highly involved</label>
+            <label class="choice"><input type="radio" name="q1" value="5"> Government should control businesses</label>
+        </div>
+
+        <div class="question-container">
+            <div class="question">
+                2. Do you support government-funded social programs like healthcare and education?
+            </div>
+            <label class="choice"><input type="radio" name="q2" value="1"> Strongly oppose</label>
+            <label class="choice"><input type="radio" name="q2" value="2"> Oppose</label>
+            <label class="choice"><input type="radio" name="q2" value="3"> Neutral</label>
+            <label class="choice"><input type="radio" name="q2" value="4"> Support</label>
+            <label class="choice"><input type="radio" name="q2" value="5"> Strongly support</label>
+        </div>
+
+        <div class="question-container">
+            <div class="question">
+                3. How do you feel about government regulations on individual liberties, such as personal firearm ownership?
+            </div>
+            <label class="choice"><input type="radio" name="q3" value="1"> Strongly oppose</label>
+            <label class="choice"><input type="radio" name="q3" value="2"> Oppose</label>
+            <label class="choice"><input type="radio" name="q3" value="3"> Neutral</label>
+            <label class="choice"><input type="radio" name="q3" value="4"> Support</label>
+            <label class="choice"><input type="radio" name="q3" value="5"> Strongly support</label>
+        </div>
+
+        <div class="question-container">
+            <div class="question">
+                4. Should the government provide financial assistance to individuals in need, even if it means higher taxes?
+            </div>
+            <label class="choice"><input type="radio" name="q4" value="1"> Strongly disagree</label>
+            <label class="choice"><input type="radio" name="q4" value="2"> Disagree</label>
+            <label class="choice"><input type="radio" name="q4" value="3"> Neutral</label>
+            <label class="choice"><input type="radio" name="q4" value="4"> Agree</label>
+            <label class="choice"><input type="radio" name="q4" value="5"> Strongly agree</label>
+        </div>
+
+        <div class="question-container">
+            <div class="question">
+                5. Do you think the government should be involved in setting minimum wage standards?
+            </div>
+            <label class="choice"><input type="radio" name="q5" value="1"> Strongly oppose</label>
+            <label class="choice"><input type="radio" name="q5" value="2"> Oppose</label>
+            <label class="choice"><input type="radio" name="q5" value="3"> Neutral</label>
+            <label class="choice"><input type="radio" name="q5" value="4"> Support</label>
+            <label class="choice"><input type="radio" name="q5" value="5"> Strongly support</label>
+        </div>
+
+        <div class="question-container">
+            <div class="question">
+                6. Should the government invest in infrastructure development and public transportation?
+            </div>
+            <label class="choice"><input type="radio" name="q6" value="1"> Strongly oppose</label>
+            <label class="choice"><input type="radio" name="q6" value="2"> Oppose</label>
+            <label class="choice"><input type="radio" name="q6" value="3"> Neutral</label>
+            <label class="choice"><input type="radio" name="q6" value="4"> Support</label>
+            <label class="choice"><input type="radio" name="q6" value="5"> Strongly support</label>
+        </div>
+
+        <div class="question-container">
+            <div class="question">
+                7. How much should the government be involved in regulating the internet and online content?
+            </div>
+            <label class="choice"><input type="radio" name="q7" value="1"> Not involved at all</label>
+            <label class="choice"><input type="radio" name="q7" value="2"> Limited involvement</label>
+            <label class="choice"><input type="radio" name="q7" value="3"> Moderately involved</label>
+            <label class="choice"><input type="radio" name="q7" value="4"> Highly involved</label>
+            <label class="choice"><input type="radio" name="q7" value="5"> Government should control online content</label>
+        </div>
+
+        <div class="question-container">
+            <div class="question">
+                8. Should the government implement policies to address income inequality?
+            </div>
+            <label class="choice"><input type="radio" name="q8" value="1"> Strongly oppose</label>
+            <label class="choice"><input type="radio" name="q8" value="2"> Oppose</label>
+            <label class="choice"><input type="radio" name="q8" value="3"> Neutral</label>
+            <label class="choice"><input type="radio" name="q8" value="4"> Support</label>
+            <label class="choice"><input type="radio" name="q8" value="5"> Strongly support</label>
+        </div>
+
+        <div class="question-container">
+            <div class="question">
+                9. Do you believe in a balanced federal budget, even if it means reducing government spending on social programs?
+            </div>
+            <label class="choice"><input type="radio" name="q9" value="1"> Strongly disagree</label>
+            <label class="choice"><input type="radio" name="q9" value="2"> Disagree</label>
+            <label class="choice"><input type="radio" name="q9" value="3"> Neutral</label>
+            <label class="choice"><input type="radio" name="q9" value="4"> Agree</label>
+            <label class="choice"><input type="radio" name="q9" value="5"> Strongly agree</label>
+        </div>
+
+        <div class="question-container">
+            <div class="question">
+                10. How do you feel about the government's role in protecting the environment through regulations and incentives?
+            </div>
+            <label class="choice"><input type="radio" name="q10" value="1"> Strongly oppose</label>
+            <label class="choice"><input type="radio" name="q10" value="2"> Oppose</label>
+            <label class="choice"><input type="radio" name="q10" value="3"> Neutral</label>
+            <label class="choice"><input type="radio" name="q10" value="4"> Support</label>
+            <label class="choice"><input type="radio" name="q10" value="5"> Strongly support</label>
+        </div>
+
+        <!-- Add questions for Topic 2, Topic 3, Topic 4, and Topic 5 here -->
+
+        <button class="submit-btn">Submit</button>
+    </div>
+
+    <footer>
+        &copy; 2023 Social Equality. All rights reserved.
+    </footer>
+</body>
+
+</html>
