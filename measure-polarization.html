@@ -195,31 +195,32 @@
     const polarizationScore = document.getElementById('polarization-score');
 
    submitButton.addEventListener('click', () => {
-  let agreeTotal = 0;
-  let stronglyAgreeTotal = 0;
-  let disagreeTotal = 0;
-  let stronglyDisagreeTotal = 0;
+    event.preventDefault();
+    let agreeTotal = 0;
+    let stronglyAgreeTotal = 0;
+    let disagreeTotal = 0;
+    let stronglyDisagreeTotal = 0;
      
 
-  // Loop through all scenarios
-  for (let i = 1; i <= 10; i++) {
-    const selectedOption = document.querySelector(`input[name="scenario${i}"]:checked`);
-    if (selectedOption) {
-      if (selectedOption.value === "agree") {
-        console.log("agree");
-        agreeTotal++;
-      } else if (selectedOption.value === "disagree") {
-        console.log("disagree");
-        disagreeTotal++;
-      } else if (selectedOption.value === "strongly-disagree") {
-        console.log("strongly-disagree");
-        stronglyDisagreeTotal++;
-      } else if (selectedOption.value === "strongly-agree") {
-        console.log("strongly-agree");
-        stronglyAgreeTotal++;
+    // Loop through all scenarios
+    for (let i = 1; i <= 10; i++) {
+      const selectedOption = document.querySelector(`input[name="scenario${i}"]:checked`);
+      if (selectedOption) {
+        if (selectedOption.value === "agree") {
+          console.log("agree");
+          agreeTotal++;
+        } else if (selectedOption.value === "disagree") {
+          console.log("disagree");
+          disagreeTotal++;
+        } else if (selectedOption.value === "strongly-disagree") {
+          console.log("strongly-disagree");
+          stronglyDisagreeTotal++;
+        } else if (selectedOption.value === "strongly-agree") {
+          console.log("strongly-agree");
+          stronglyAgreeTotal++;
+        }
       }
     }
-  }
 
   const totalScenarios = 10;
   const polarizationIndex = totalScenarios === 0 ? 0 : ((2*stronglyAgreeTotal+agreeTotal) - (2*stronglyDisagreeTotal + disagreeTotal)) / totalScenarios;
@@ -229,7 +230,6 @@
      console.log(agreeTotal + disagreeTotal);
      console.log(totalScenarios);
      console.log(polarizationIndex);
-     
 });
 
   </script>
