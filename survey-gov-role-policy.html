@@ -189,6 +189,33 @@
         <button class="submit-btn">Submit</button>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.submit-btn').addEventListener('click', function() {
+                let totalScore = 0;
+                const questions = document.querySelectorAll('.question-container');
+
+                questions.forEach(function(question) {
+                    const selectedOption = question.querySelector('input[type=radio]:checked');
+                    if (selectedOption) {
+                        totalScore += parseInt(selectedOption.value);
+                    }
+                });
+
+                let mindset = '';
+                if (totalScore <= 25) {
+                    mindset = 'Conservative';
+                } else if (totalScore <= 45) {
+                    mindset = 'Moderate';
+                } else {
+                    mindset = 'Liberal';
+                }
+
+                alert('Your political mindset is: ' + mindset);
+            });
+        });
+    </script>
+
     <footer>
         &copy; 2023 Social Equality. All rights reserved.
     </footer>
