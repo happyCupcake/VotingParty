@@ -11,6 +11,7 @@ loginForm.addEventListener('submit', function(event) {
   const loginContact = document.getElementById('login-contact').value;
   const loginPassword = document.getElementById('login-password').value;
 
+  let userFound = false;
   for (var i = 0; i < localStorage.length; i++) {
     var key = localStorage.key(i);
     var value = localStorage.getItem(key);
@@ -22,13 +23,14 @@ loginForm.addEventListener('submit', function(event) {
         loginMessage.textContent = 'Login successful!';
         loginForm.reset();
         showLoggedInUser(key);
+        userFound = true;
         break;
-      } else {
-        loginMessage.textContent = 'Invalid contact method or password.';
-      }
-    } else {
-      loginMessage.textContent = 'No user found. Please register.';
-    }
+      } 
+    } 
+  }
+
+  if (userFound == false ) {
+    loginMessage.textContent = 'Invalid user or Incorrect password. Please register or try to reset your password';
   }
 });
 
@@ -72,9 +74,7 @@ function showLoggedInUser(userKey) {
         if (storedUser.polling === user.polling && storedUser.name != user.name) {
           userInfo.innerHTML += `
                 <p><strong>Contact Method:</strong> ${storedUser.contact}</p>`
-        } else {
-          loginMessage.textContent = 'Invalid contact method or password.';
-        }
+        } 
       } else {
         loginMessage.textContent = 'No user found with same polling location.';
       }
@@ -90,4 +90,5 @@ function showLoggedInUser(userKey) {
 logoutButton.addEventListener('click', function() {
   loginForm.style.display = 'block';
   dashboard.style.display = 'none';
+  loginMessage.textContent="";
 });
