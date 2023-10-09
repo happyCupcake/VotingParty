@@ -23,6 +23,8 @@ loginForm.addEventListener('submit', function(event) {
         loginMessage.textContent = 'Login successful!';
         loginForm.reset();
         showLoggedInUser(key);
+        localStorage.setItem('loggedInUser', value);
+        document.getElementById('loggedInUser').textContent = storedUser.name;
         userFound = true;
         break;
       } 
@@ -91,4 +93,6 @@ logoutButton.addEventListener('click', function() {
   loginForm.style.display = 'block';
   dashboard.style.display = 'none';
   loginMessage.textContent="";
+  localStorage.removeItem('loggedInUser');
+  location.reload(); 
 });

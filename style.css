@@ -170,3 +170,11 @@ button:hover {
 .results br {
   margin-bottom: 10px;
 }
+
+.loggeduser-container {
+      position: absolute;
+      top: 10;
+      right: 0;
+      padding: 20px;
+    color: #fff;
+}

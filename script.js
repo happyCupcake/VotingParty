@@ -14,7 +14,16 @@ function printGreeting(name) {
   document.getElementById("result").innerHTML = ('Hi, ' + name + '!');
 }
 
-
+const lookupTable = {
+    "33955 Emilia Lane Fremont, CA 94555": "ARDENWOOD ELEM SCHOOL  LIBRARY, 33955 EMILIA LN  FREMONT, CA 94555",
+    "719 Wisteria Drive Fremont, CA 94539": "CHADBOURNE ELEM SCH  LIBRARY, 801 PLYMOUTH AVE  FREMONT, CA 94539",
+    "4474 Macbeth Circle Fremont, CA 94555": "ARDENWOOD ELEM SCHOOL  LIBRARY, 33955 EMILIA LN  FREMONT, CA 94555",
+    "4458 Macbeth Circle Fremont, CA 94555": "ARDENWOOD ELEM SCHOOL  LIBRARY, 33955 EMILIA LN  FREMONT, CA 94555",
+    "3764 Howe Court Fremont, CA 94538": "FREMONT FIRE STATION 3, 40700 CHAPEL WAY  FREMONT, CA 94538",
+    "41751 Murphy Place Fremont, CA 94539": "CHADBOURNE ELEM SCH  LIBRARY, 801 PLYMOUTH AVE  FREMONT, CA 94539",
+    "857 Bedford Street Fremont, CA 94539": "CHADBOURNE ELEM SCH  LIBRARY, 801 PLYMOUTH AVE  FREMONT, CA 94539",
+    "32412 Lois Way Union City, CA 94587": "CABELLO SCHOOL  TEACHERS LOUNGE, 4500 CABELLO ST  UNION CITY, CA 94587",
+};
 
 
 function load() {
@@ -24,6 +33,8 @@ function load() {
 }
 
 function lookup(address, callback) {
+  //var electionId = 2000;
+  //var electionId = 8076;
   var electionId = 2000;
   //var apiKey = ; // Replace with your own API key
   //gapi.client.setApiKey('AIzaSyB7q8BVVatQbt7btIRwPPbWq_5ZJlp0vq4');
@@ -42,12 +53,13 @@ function lookup(address, callback) {
 function displayPollingLocation(user, response, elementId, htmlInfo) {
   var resultsContainer = document.getElementById(elementId);
   resultsContainer.innerHTML = htmlInfo;
-
+  
   if (!response || response.error) {
     resultsContainer.textContent = 'Error while trying to fetch polling place';
     return;
   }
-
+   console.log('displayPollingLocation1 ', response);
+  
   var normalizedAddress = response.normalizedInput.line1 + ' ' +
     response.normalizedInput.city + ', ' +
     response.normalizedInput.state + ' ' +
@@ -61,21 +73,38 @@ function displayPollingLocation(user, response, elementId, htmlInfo) {
       pollingLocation.state + ' ' +
       pollingLocation.zip;
 
-    var normEl = document.createElement('strong');
-    normEl.textContent = 'Polling Location: ';
-    resultsContainer.appendChild(normEl);
-
-    var addressEl = document.createElement('strong');
-    addressEl.textContent = pollingAddress;
-    resultsContainer.appendChild(addressEl);
-    if (user) {
-      user.polling = pollingAddress;
-      localStorage.setItem(user.contact, JSON.stringify(user));
-    }
+      var normEl = document.createElement('strong');
+      normEl.textContent = 'Polling Location: ';
+      resultsContainer.appendChild(normEl);
+  
+      var addressEl = document.createElement('strong');
+      addressEl.textContent = pollingAddress;
+      resultsContainer.appendChild(addressEl);
+      if (user) {
+        user.polling = pollingAddress;
+        localStorage.setItem(user.contact, JSON.stringify(user));
+      }
   } else {
-    var errorEl = document.createElement('span');
-    errorEl.textContent = 'Could not find polling place for ' + normalizedAddress;
-    resultsContainer.appendChild(errorEl);
+      console.log('here1 ',normalizedAddress);
+      if (lookupTable.hasOwnProperty(normalizedAddress)) {
+          console.log('here2');
+          pollingAddress = lookupTable[normalizedAddress];
+           var normEl = document.createElement('strong');
+            normEl.textContent = 'Polling Location: ';
+            resultsContainer.appendChild(normEl);
+        
+            var addressEl = document.createElement('strong');
+            addressEl.textContent = pollingAddress;
+            resultsContainer.appendChild(addressEl);
+            if (user) {
+              user.polling = pollingAddress;
+              localStorage.setItem(user.contact, JSON.stringify(user));
+            }
+      } else {
+        var errorEl = document.createElement('span');
+        errorEl.textContent = 'Could not find polling place for ' + normalizedAddress;
+        resultsContainer.appendChild(errorEl);
+      }
   }
 }
 
@@ -86,7 +115,7 @@ function handleFormSubmit() {
   var addressInput = document.getElementById('address');
   var address = addressInput.value.trim();
 
-  gapi.client.setApiKey('AIzaSyB7q8BVVatQbt7btIRwPPbWq_5ZJlp0vq4');
+  gapi.client.setApiKey('AIzaSyCQVU3YSvM00wvoN7u_Dm125_Kpg-F_us4');
   var elementId = 'results';
   if (address !== '') {
     console.log('Form submitted:', address);

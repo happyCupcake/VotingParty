@@ -50,10 +50,14 @@
             background-color: #555;
         }
     </style>
+    <script src="logged-user.js"></script>
 </head>
 
 <body>
     <header>
+      <div class="loggeduser-container">
+            Logged in as: <span id="loggedInUser"></span>
+      </div>
       <h1>CitizenVote</h1>
       <nav>
         <ul>
@@ -212,6 +216,9 @@
                 }
 
                 alert('Your political mindset is: ' + mindset);
+              const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+                loggedInUser.govScore = totalScore.toString());
+                localStorage.setItem(loggedInUser.contact, JSON.stringify(loggedInUser));
             });
         });
     </script>

@@ -16,6 +16,12 @@ registrationForm.addEventListener('submit', function (event) {
     contact: contact,
     password: password,
     polling: '',
+    govScore: '',
+    economicScore: '',
+    socialScore: '',
+    foreignScore: '',
+    envScore: '',
+    totalScore: '',
   };
 
   console.log(user.name + " " + user.contact + " " + user.password)
