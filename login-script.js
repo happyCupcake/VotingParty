@@ -1,6 +1,7 @@
 // Login Form
 const loginForm = document.getElementById('login-form');
 const loginMessage = document.getElementById('login-message');
+const welcomeMessage = document.getElementById('welcome-message');
 const userInfo = document.getElementById('user-info');
 const dashboard = document.getElementById('dashboard');
 const logoutButton = document.getElementById('logout-button');
@@ -21,9 +22,9 @@ loginForm.addEventListener('submit', function(event) {
     if (storedUser) {
       if (storedUser.contact === loginContact && storedUser.password === loginPassword) {
         loginMessage.textContent = 'Login successful!';
-        loginForm.reset();
-        showLoggedInUser(key);
+        //loginForm.reset();
         localStorage.setItem('loggedInUser', value);
+        showLoggedInUser();
         document.getElementById('loggedInUser').textContent = storedUser.name;
         userFound = true;
         break;
@@ -36,8 +37,9 @@ loginForm.addEventListener('submit', function(event) {
   }
 });
 
-function showLoggedInUser(userKey) {
-  var user = JSON.parse(localStorage.getItem(userKey));
+function showLoggedInUser() {
+  const user = JSON.parse(localStorage.getItem('loggedInUser'));
+  welcomeMessage.textContent += user.name;
   if (user) {
     if (user.polling == '') {
       gapi.client.setApiKey('AIzaSyB7q8BVVatQbt7btIRwPPbWq_5ZJlp0vq4');

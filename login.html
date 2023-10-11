@@ -20,9 +20,9 @@
 </head>
 
 <body>
-        <div class="loggeduser-container">
-            Logged in as: <span id="loggedInUser"></span>
-        </div>
+  <div class="loggeduser-container">
+      Logged in as: <span id="loggedInUser"></span>
+  </div>
   <header>
     <h1>CitizenVote</h1>
     <nav>
@@ -40,7 +40,7 @@
   </header>
 
   <main>
-    <section>
+    <section id="login">
       <h2>Login</h2>
       <form id="login-form">
         <div class="form-group">
@@ -57,7 +57,7 @@
       <p id="login-message"></p>
     </section>
     <section id="dashboard">
-      <h2>Welcome to Citizen Vote</h2>
+      <h2 id="welcome-message">  Welcome back </h2>
       <div id="user-info"></div>
       <button id="logout-button">Log Out</button>
     </section>

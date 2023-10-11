@@ -14,6 +14,7 @@ function printGreeting(name) {
   document.getElementById("result").innerHTML = ('Hi, ' + name + '!');
 }
 
+// polling locations map. for some reason google civic information api is no longer returning pollingLocations field
 const lookupTable = {
     "33955 Emilia Lane Fremont, CA 94555": "ARDENWOOD ELEM SCHOOL  LIBRARY, 33955 EMILIA LN  FREMONT, CA 94555",
     "719 Wisteria Drive Fremont, CA 94539": "CHADBOURNE ELEM SCH  LIBRARY, 801 PLYMOUTH AVE  FREMONT, CA 94539",
