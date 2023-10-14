@@ -142,7 +142,7 @@
     <label class="choice"><input type="radio" name="q16" value="2"> Protected with limitations</label>
     <label class="choice"><input type="radio" name="q16" value="3"> Neutral</label>
     <label class="choice"><input type="radio" name="q16" value="4"> Restricted with exceptions</label>
-    <label class="choice"><input type="radio" name="q16" value="
+    <label class="choice"><input type="radio" name="q16" value="5"> Strongly restricted </label>
 </div>
 <div class="question-container">
     <div class="question">
@@ -190,6 +190,7 @@
 
         <button class="submit-btn">Submit</button>
     </div>
+  <script src="match-users.js"></script>
   <script>
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.submit-btn').addEventListener('click', function() {
@@ -203,19 +204,13 @@
                     }
                 });
     
-                let mindset = '';
-                if (totalScore <= 25) {
-                    mindset = 'Conservative';
-                } else if (totalScore <= 45) {
-                    mindset = 'Moderate';
-                } else {
-                    mindset = 'Liberal';
-                }
+                let mindset = calculateMindset(totalScore);
     
                 alert('Your political mindset is: ' + mindset);
-              const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-                loggedInUser.socialScore = totalScore.toString());
+                const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+                loggedInUser.socialScore = totalScore.toString();
                 localStorage.setItem(loggedInUser.contact, JSON.stringify(loggedInUser));
+                localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
             });
         });
     </script>

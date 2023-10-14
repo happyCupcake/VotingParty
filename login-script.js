@@ -64,6 +64,10 @@ function showLoggedInUser() {
             <p></p>
             <p></p>`
     }
+
+    let userMindSet = calculateMindsetBasedOnFiveSurveys(Number(user.govScore)+Number(user.economicScore)+Number(user.socialScore)+ Number(user.foreignScore) +Number(user.envScore));
+
+     console.log(userMindSet);
     // find all users with same polling location as me
     userInfo.innerHTML += `
           <hr>
@@ -76,8 +80,32 @@ function showLoggedInUser() {
 
       if (storedUser) {
         if (storedUser.polling === user.polling && storedUser.name != user.name) {
-          userInfo.innerHTML += `
-                <p><strong>Contact Method:</strong> ${storedUser.contact}</p>`
+
+            let totalScore = convertToNumber(storedUser.govScore)+
+              convertToNumber(storedUser.economicScore)+
+              convertToNumber(storedUser.socialScore)+
+              convertToNumber(storedUser.foreignScore)+
+              convertToNumber(storedUser.envScore);
+            let storedMindSet = calculateMindsetBasedOnFiveSurveys(totalScore);
+            
+            console.log(storedMindSet);
+          
+            if (
+                (userMindSet == 'Moderate' && storedMindSet == 'Moderate') ||
+                (userMindSet == 'Moderate' && storedMindSet == 'Liberal') ||
+                (userMindSet == 'Liberal' && storedMindSet == 'Moderate') ||
+                (userMindSet == 'Liberal' && storedMindSet == 'Conservative') ||
+                 (userMindSet == 'Conservative' && storedMindSet == 'Liberal') ||
+                (userMindSet == 'Conservative' && storedMindSet == 'Moderate') ||
+                 (userMindSet == 'Moderate' && storedMindSet == 'Conservative')) {
+            
+                userInfo.innerHTML += `
+                    <p><strong>Contact Method:</strong> ${storedUser.contact}</p>`
+            } else if  (userMindSet == 'Conservative' && storedMindSet == 'Conservative') {
+              console.log("two Conservatives found, maching them together will reinforce their believes");
+            } else if ((userMindSet == 'Liberal' && storedMindSet == 'Liberal') ) {
+              console.log("two Liberal found, maching them together will reinforce their believes");
+            }
         } 
       } else {
         loginMessage.textContent = 'No user found with same polling location.';

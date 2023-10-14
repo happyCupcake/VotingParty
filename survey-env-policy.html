@@ -202,6 +202,7 @@
 
         <button class="submit-btn">Submit</button>
     </div>
+ <script src="match-users.js"></script>
 <script>
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.submit-btn').addEventListener('click', function() {
@@ -214,20 +215,14 @@
                         totalScore += parseInt(selectedOption.value);
                     }
                 });
-    
-                let mindset = '';
-                if (totalScore <= 25) {
-                    mindset = 'Conservative';
-                } else if (totalScore <= 45) {
-                    mindset = 'Moderate';
-                } else {
-                    mindset = 'Liberal';
-                }
+
+                let mindset = calculateMindset(totalScore);
     
                 alert('Your political mindset is: ' + mindset);
                 const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-                loggedInUser.envScore = totalScore.toString());
+                loggedInUser.envScore = totalScore.toString();
                 localStorage.setItem(loggedInUser.contact, JSON.stringify(loggedInUser));
+                localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
             });
         });
     </script>
