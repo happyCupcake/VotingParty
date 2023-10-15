@@ -30,4 +30,8 @@ function convertToNumber(str) {
     return isNaN(number) ? 0 : number;
 }
 
+function redirectToSurvey() {
+    window.location.href = 'survey.html'; // Redirect to the survey page
+}
+
 

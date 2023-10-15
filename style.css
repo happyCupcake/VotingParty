@@ -178,3 +178,12 @@ button:hover {
       padding: 20px;
     color: #fff;
 }
+
+/* Additional CSS for Logo */
+.logo {
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    height: 120px; /* Adjust the height as needed */
+    width: auto; /* Automatically adjust width based on height */
+}

@@ -113,7 +113,8 @@ function showLoggedInUser() {
 
     }
     userInfo.innerHTML += `
-       <p> <strong>You can start planning your Voting Parties by initiating an Email.</strong></p>`
+       <p> <strong>You can start planning your Voting Parties by initiating an Email.</strong></p>
+       <hr>`
   }
   loginForm.style.display = 'none';
   dashboard.style.display = 'block';
