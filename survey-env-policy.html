@@ -201,6 +201,8 @@
 
 
         <button class="submit-btn">Submit</button>
+        <!-- Add an element to display the message -->
+        <div id="survey-feedback" style="display:none;"></div>
     </div>
  <script src="match-users.js"></script>
 <script>
@@ -218,7 +220,10 @@
 
                 let mindset = calculateMindset(totalScore);
     
-                alert('Your political mindset is: ' + mindset);
+                //alert('Your political mindset is: ' + mindset);
+                const feedbackElement = document.getElementById('survey-feedback');
+                feedbackElement.style.display = 'block';
+                feedbackElement.innerText = 'Your survey score has been recorded!';
                 const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
                 loggedInUser.envScore = totalScore.toString();
                 localStorage.setItem(loggedInUser.contact, JSON.stringify(loggedInUser));
