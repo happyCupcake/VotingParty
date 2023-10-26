@@ -71,7 +71,7 @@ function showLoggedInUser() {
     // find all users with same polling location as me
     userInfo.innerHTML += `
           <hr>
-          <p><strong>Additional users found with same polling location:</strong></p>`
+          <p><strong>Additional users found with same polling location. Based on your survey responses and a proprietary algorithm, here are some potential matches to reduce political polarization:</strong></p>`
 
     for (var i = 0; i < localStorage.length; i++) {
       var key = localStorage.key(i);

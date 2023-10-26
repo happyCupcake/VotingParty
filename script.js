@@ -29,7 +29,7 @@ const lookupTable = {
 
 function load() {
   console.log('Hi, !');
-  gapi.client.setApiKey('AIzaSyB7q8BVVatQbt7btIRwPPbWq_5ZJlp0vq4');
+  gapi.client.setApiKey('AIzaSyCQVU3YSvM00wvoN7u_Dm125_Kpg-F_us4');
   lookup('1263 Pacific Ave. Kansas City KS', displayPollingLocation);
 }
 
@@ -38,7 +38,7 @@ function lookup(address, callback) {
   //var electionId = 8076;
   var electionId = 2000;
   //var apiKey = ; // Replace with your own API key
-  //gapi.client.setApiKey('AIzaSyB7q8BVVatQbt7btIRwPPbWq_5ZJlp0vq4');
+  gapi.client.setApiKey('AIzaSyCQVU3YSvM00wvoN7u_Dm125_Kpg-F_us4');
   //gapi.client.request('civicinfo', 'v2', function() {
   console.log("look")
   //address='4371, Jessica Cir, Fremont, CA.'
