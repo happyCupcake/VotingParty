@@ -1,4 +1,4 @@
-// Registration Form
+
 const registrationForm = document.getElementById('registration-form');
 const registrationMessage = document.getElementById('registration-message');
 
@@ -36,7 +36,6 @@ registrationForm.addEventListener('submit', function (event) {
 function showLoggedInUser(userKey) {
   var user = JSON.parse(localStorage.getItem(userKey));
   if (user) {
-    // Display user info after registration
     console.log(user);
   }
 }

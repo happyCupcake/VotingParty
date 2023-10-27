@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const loginMessage = document.getElementById('login-message');
 
     if (loggedInUser && userElement) {
-        userElement.textContent = loggedInUser.name; // Assuming 'name' is the property holding the username
+        userElement.textContent = loggedInUser.name;
         if ( dashboardSection) {
           loginSection.style.display = 'none';
           loginMessage.innerText = `Welcome back, ${loggedInUser.Name}!`;

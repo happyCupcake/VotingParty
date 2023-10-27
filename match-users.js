@@ -15,9 +15,9 @@ function calculateMindset(totalScore) {
 function calculateMindsetBasedOnFiveSurveys(totalScore) {
     let mindset = '';
     console.log(totalScore);
-    if (totalScore <= 125) {  // Adjusted threshold for Conservative
+    if (totalScore <= 125) { 
         mindset = 'Conservative';
-    } else if (totalScore <= 225) {  // Adjusted threshold for Moderate
+    } else if (totalScore <= 225) {
         mindset = 'Moderate';
     } else {
         mindset = 'Liberal';
@@ -31,7 +31,7 @@ function convertToNumber(str) {
 }
 
 function redirectToSurvey() {
-    window.location.href = 'survey.html'; // Redirect to the survey page
+    window.location.href = 'survey.html';
 }
 
 

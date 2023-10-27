@@ -7,7 +7,6 @@
     <title>Political Mindset Survey</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Additional CSS for Survey Page */
         .survey-container {
             max-width: 800px;
             margin: 0 auto;
@@ -190,7 +189,6 @@
 
 
         <button class="submit-btn">Submit</button>
-        <!-- Add an element to display the message -->
         <div id="survey-feedback" style="display:none;"></div>
 
     </div>
@@ -209,7 +207,7 @@
                 });
     
                 let mindset = calculateMindset(totalScore);
-                //alert('Your political mindset is: ' + mindset);
+                //alert('Your preferences in this category: ' + mindset);
                 const feedbackElement = document.getElementById('survey-feedback');
                 feedbackElement.style.display = 'block';
                 feedbackElement.innerText = 'Your survey score has been recorded!';

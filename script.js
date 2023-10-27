@@ -34,14 +34,9 @@ function load() {
 }
 
 function lookup(address, callback) {
-  //var electionId = 2000;
-  //var electionId = 8076;
   var electionId = 2000;
-  //var apiKey = ; // Replace with your own API key
   gapi.client.setApiKey('AIzaSyCQVU3YSvM00wvoN7u_Dm125_Kpg-F_us4');
-  //gapi.client.request('civicinfo', 'v2', function() {
   console.log("look")
-  //address='4371, Jessica Cir, Fremont, CA.'
   var req = gapi.client.request({
     'path': '/civicinfo/v2/voterinfo',
     'params': { 'electionId': electionId, 'address': address }

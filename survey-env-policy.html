@@ -7,7 +7,6 @@
     <title>Political Mindset Survey</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Additional CSS for Survey Page */
         .survey-container {
             max-width: 800px;
             margin: 0 auto;
@@ -80,7 +79,6 @@
     <h2>Topic 2: Environmental Policy</h2>
 </div>
 
-  <!-- Question 1 -->
                 <div class="question-container">
                     <div class="question">
                         1. How concerned are you about the effects of climate change?
@@ -92,7 +90,6 @@
                     <label class="choice"><input type="radio" name="q19" value="5"> Very concerned</label>
                 </div>
 
-                <!-- Question 2 -->
                 <div class="question-container">
                     <div class="question">
                         2. Do you support government regulations aimed at reducing carbon emissions from industries and vehicles?
@@ -104,7 +101,6 @@
                     <label class="choice"><input type="radio" name="q20" value="5"> Strongly support</label>
                 </div>
 
-                <!-- Question 3 -->
                 <div class="question-container">
                     <div class="question">
                         3. Should the government incentivize and invest in renewable energy sources like solar and wind power?
@@ -116,7 +112,6 @@
                     <label class="choice"><input type="radio" name="q21" value="5"> Strongly support</label>
                 </div>
 
-                <!-- Question 4 -->
                 <div class="question-container">
                     <div class="question">
                         4. How important is the preservation of natural habitats and biodiversity to you?
@@ -128,7 +123,6 @@
                     <label class="choice"><input type="radio" name="q22" value="5"> Very important</label>
                 </div>
 
-                <!-- Question 5 -->
                 <div class="question-container">
                     <div class="question">
                         5. Should the government prioritize the development of nuclear energy as a low-carbon alternative?
@@ -140,7 +134,6 @@
                     <label class="choice"><input type="radio" name="q23" value="5"> Strongly support</label>
                 </div>
 
-                <!-- Question 6 -->
                 <div class="question-container">
                     <div class="question">
                         6. How do you view policies related to conservation and public lands, such as national parks and wildlife refuges?
@@ -152,7 +145,6 @@
                     <label class="choice"><input type="radio" name="q24" value="5"> Strongly support</label>
                 </div>
 
-                <!-- Question 7 -->
                 <div class="question-container">
                     <div class="question">
                         7. Should the government impose restrictions on activities like fracking and offshore drilling to protect the environment?
@@ -164,7 +156,6 @@
                     <label class="choice"><input type="radio" name="q25" value="5"> Strongly support</label>
                 </div>
 
-                <!-- Question 8 -->
                 <div class="question-container">
                     <div class="question">
                         8. How important is it for the government to invest in research and development of green technologies?
@@ -176,7 +167,6 @@
                     <label class="choice"><input type="radio" name="q26" value="5"> Very important</label>
                 </div>
 
-                <!-- Question 9 -->
                 <div class="question-container">
                     <div class="question">
                         9. Should the government encourage sustainable farming practices and reduce the use of pesticides and herbicides?
@@ -188,7 +178,6 @@
                     <label class="choice"><input type="radio" name="q27" value="5"> Strongly support</label>
                 </div>
 
-                <!-- Question 10 -->
                 <div class="question-container">
                     <div class="question">
                         10. Do you support global efforts to address environmental issues and collaborate with other countries to combat climate change?
@@ -201,8 +190,7 @@
                 </div>
 
 
-        <button class="submit-btn">Submit</button>
-        <!-- Add an element to display the message -->
+        <button class="submit-btn">Submit</button>>
         <div id="survey-feedback" style="display:none;"></div>
     </div>
  <script src="match-users.js"></script>
@@ -221,7 +209,7 @@
 
                 let mindset = calculateMindset(totalScore);
     
-                //alert('Your political mindset is: ' + mindset);
+                //alert('Your preferences in this category: ' + mindset);
                 const feedbackElement = document.getElementById('survey-feedback');
                 feedbackElement.style.display = 'block';
                 feedbackElement.innerText = 'Your survey score has been recorded!';

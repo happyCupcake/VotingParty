@@ -6,7 +6,6 @@
   <title>Voting Guides - CitizenVote</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Slideshow Styles */
     .slideshow-container {
       max-width: 100%;
       margin: 0 auto;
@@ -21,9 +20,9 @@
 
     .mySlides {
       flex: 0 0 auto;
-      width: 600px; /* Smaller width for non-focused slides */
+      width: 600px; 
       padding: 50px;
-      background-color: rgba(200, 200, 200,0.7); /* Slightly darker background */
+      background-color: rgba(200, 200, 200,0.7); 
       border-radius: 10px;
       margin-right: 10px;
       display: flex;
@@ -31,15 +30,15 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      transform: scale(0.8); /* Smaller size for non-focused slides */
+      transform: scale(0.8); 
       transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
     }
 
     .mySlides.focus {
 
-      width: 800px; /* Larger width for the focused slide */
-      background-color: rgb(240, 240, 255); /* Original background for the focused slide */
-      transform: scale(1); /* Original size for the focused slide */
+      width: 800px;
+      background-color: rgb(240, 240, 255); 
+      transform: scale(1); 
     }
 
     /* Navigation Buttons */
@@ -95,7 +94,6 @@
         <div class="mySlides focus">
           <section>
             <h2>Voting Guides</h2>
-            <!-- Add content specific to the Voting Guides page -->
           </section>
         </div>
 
@@ -158,7 +156,7 @@
   </footer>
 
   <script>
-    // JavaScript for the scrolling gallery
+    // scrolling voting guides
 
     let currentIndex = 0;
 
@@ -177,7 +175,6 @@
 
       slides[currentIndex].classList.add('focus');
 
-      // Calculate the translation value to center the focused slide
       const slideWidth = slides[currentIndex].offsetWidth;
       const wrapperWidth = scrollingWrapper.offsetWidth;
       const scrollValue = (currentIndex * (slideWidth - 190));
